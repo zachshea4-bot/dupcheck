@@ -7,8 +7,8 @@ import { useRouter } from 'next/navigation';
 const PLANS = [
   {
     name: 'Starter',
-    price: 49,
-    priceId: 'price_starter', // Replace with your Stripe price ID
+    price: 99,
+    priceId: 'price_1UH11CEt7GNHNMTXioEvOxHr', // Replace with your Stripe price ID
     description: 'For small businesses',
     features: [
       'Up to 100 transactions/month',
@@ -21,8 +21,8 @@ const PLANS = [
   },
   {
     name: 'Professional',
-    price: 149,
-    priceId: 'price_professional',
+    price: 249,
+    priceId: 'price_1UH11hEt7GNHNMTXdKCtZEG0',
     description: 'For growing companies',
     features: [
       'Up to 5,000 transactions/month',
@@ -229,3 +229,4 @@ export default function PricingPage() {
     </div>
   );
 }
+
