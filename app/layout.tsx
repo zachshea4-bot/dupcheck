@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Toaster } from "react-hot-toast"
@@ -17,7 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
       <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  );
+}>
         <ClerkProvider appearance={{ variables: { colorPrimary: "#ff8c00" } }}>
           <Navbar />
           <main className="min-h-screen">
