@@ -28,8 +28,8 @@ export default function PaymentsList({ limit = 50 }: PaymentsListProps) {
     const fetchPayments = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/dashboard/payments?limit=' + limit);
-        
+const userId = 'test-user'; // TODO: get from Clerk
+const response = await fetch(`/api/dashboard/payments?userId=${userId}&limit=${limit}`);        
         if (!response.ok) {
           throw new Error(`Failed to fetch payments: ${response.statusText}`);
         }
