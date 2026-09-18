@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff8c00;
+  --color-primary-light: #ffb84d;
+  --color-primary-dark: #e67e00;
+  --color-dark: #1a1a1a;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f8f8f8;
+    color: #1a1a1a;
+    font-family: system-ui, sans-serif;
+  }
+
+  button {
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-[#FF8C00] text-white rounded-lg font-semibold hover:bg-[#E67E00] transition-all;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-[#1a1a1a] text-white rounded-lg font-semibold hover:bg-[#333] transition-all;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-[#FF8C00] text-[#FF8C00] rounded-lg font-semibold hover:bg-[#FF8C00] hover:text-white transition-all;
+  }
+
+  .container-max {
+    @apply max-w-6xl mx-auto px-4;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #FF8C00, #FFB84D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+  }
+
+  input[type='file']::file-selector-button {
+    @apply bg-[#FF8C00] text-white px-4 py-2 rounded cursor-pointer hover:bg-[#E67E00] transition-all;
+    border: none;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
