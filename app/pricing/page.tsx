@@ -8,7 +8,7 @@ const PLANS = [
   {
     name: 'Starter',
     price: 99,
-    priceId: 'price_1UH11CEt7GNHNMTXioEvOxHr', // Replace with your Stripe price ID
+    priceId: 'price_1UH11CEt7GNHNMTXioEvOxHr',
     description: 'For small businesses',
     features: [
       'Up to 100 transactions/month',
@@ -64,7 +64,6 @@ export default function PricingPage() {
     }
 
     if (!priceId) {
-      // Enterprise contact
       window.location.href = 'mailto:sales@dupcheck.app?subject=Enterprise%20Inquiry';
       return;
     }
@@ -95,7 +94,6 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Simple, Transparent Pricing
@@ -105,7 +103,6 @@ export default function PricingPage() {
           </p>
         </div>
 
-        {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {PLANS.map((plan) => (
             <div
@@ -116,7 +113,6 @@ export default function PricingPage() {
                   : 'bg-white'
               }`}
             >
-              {/* Card Header */}
               <div className={`p-8 ${plan.highlighted ? 'bg-blue-700' : 'bg-slate-50'}`}>
                 <h3 className={`text-2xl font-bold mb-2 ${
                   plan.highlighted ? 'text-white' : 'text-slate-900'
@@ -128,7 +124,6 @@ export default function PricingPage() {
                 </p>
               </div>
 
-              {/* Price */}
               <div className={`px-8 py-6 ${
                 plan.highlighted ? 'bg-blue-600' : 'bg-white'
               }`}>
@@ -154,7 +149,6 @@ export default function PricingPage() {
                 )}
               </div>
 
-              {/* Features */}
               <div className={`px-8 py-6 flex-1 ${
                 plan.highlighted ? 'bg-blue-600' : 'bg-white'
               }`}>
@@ -174,9 +168,8 @@ export default function PricingPage() {
                 </ul>
               </div>
 
-              {/* CTA Button */}
-              <div className={`px-8 py-6 ${
-                plan.highlighted ? 'bg-blue-700' : 'bg-slate-50'
+              <div className={`px-8 py-6
+plan.highlighted ? 'bg-blue-700' : 'bg-slate-50'
               }`}>
                 <button
                   onClick={() => handleCheckout(plan.priceId, plan.name)}
@@ -194,7 +187,6 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* FAQ */}
         <div className="mt-16 max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
             Frequently Asked Questions
@@ -203,11 +195,11 @@ export default function PricingPage() {
             {[
               {
                 q: 'Do you offer a free trial?',
-                a: 'Yes! All plans include a 14-day free trial. No credit card required for Starter & Professional.'
+                a: 'Yes! All plans include a 14-day free trial. No credit card required for Starter and Professional.'
               },
               {
                 q: 'Can I change plans anytime?',
-                a: 'Absolutely. Upgrade or downgrade anytime. We'"'"'ll prorate billing if you switch mid-cycle.'
+                a: 'Absolutely. Upgrade or downgrade anytime. We will prorate billing if you switch mid-cycle.'
               },
               {
                 q: 'What payment methods do you accept?',
@@ -229,4 +221,3 @@ export default function PricingPage() {
     </div>
   );
 }
-
