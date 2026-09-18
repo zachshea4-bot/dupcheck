@@ -44,7 +44,7 @@ export default function FinancialImpactBanner() {
   const textColor = {
     red: 'text-red-900',
     yellow: 'text-yellow-900',
-    green: 'text-green-900',
+green: 'text-green-900',
   }[summary.severity];
 
   const icon = {
