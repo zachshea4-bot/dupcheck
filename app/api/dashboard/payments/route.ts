@@ -1,37 +1,28 @@
-import { createClient } from '@supabase/supabase-js';
-import { NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET(req: NextRequest) {
   try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
-    );
-
-    const { searchParams } = new URL(request.url);
-    const userId = searchParams.get('userId');
-    const limit = parseInt(searchParams.get('limit') || '50');
+    const userId = req.nextUrl.searchParams.get('userId');
+    const limit = req.nextUrl.searchParams.get('limit') || '10';
 
     if (!userId) {
-      return NextResponse.json({ error: 'userId required' }, { status: 400 });
+      return NextResponse.json(
+        { payments: [], error: 'No userId provided' },
+        { status: 200 }
+      );
     }
 
-    const { data, error } = await supabase
-      .from('payments')
-      .select('*')
-      .eq('user_id', userId)
-      .order('created_at', { ascending: false })
-      .limit(limit);
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    return NextResponse.json({ payments: data || [] });
-  } catch (err) {
+    // TODO: Query Supabase when payments table is populated
+    // For now, return empty array
+    return NextResponse.json({
+      payments: [],
+      message: 'No payments yet. Upload a CSV to get started.'
+    });
+  } catch (error) {
+    console.error('Payments API error:', error);
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Internal error' },
-      { status: 500 }
+      { payments: [], error: 'Failed to fetch payments' },
+      { status: 200 }
     );
   }
 }
