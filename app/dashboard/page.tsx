@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import DashboardContent from '@/components/DashboardContent';
 import PaymentsList from '@/components/PaymentsList';
+import FinancialImpactBanner from '@/components/FinancialImpactBanner';
+import TimelineChart from '@/components/TimelineChart';
 
 export default function DashboardPage() {
   const { isSignedIn, isLoaded } = useUser();
