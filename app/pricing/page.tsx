@@ -36,6 +36,21 @@ const PLANS = [
     highlighted: true
   },
   {
+    name: 'Firm',
+    price: 499,
+    priceId: 'price_1UH3GjEt7GNHNMTXr79jcl20',
+    description: 'For accounting firms',
+    features: [
+      'Up to 50,000 transactions/month',
+      'Multi-client support',
+      'White-label dashboard',
+      'API access',
+      'Dedicated support',
+      'Custom integrations'
+    ],
+    cta: 'Start Free Trial'
+  },
+  {
     name: 'Enterprise',
     price: null,
     priceId: null,
@@ -103,7 +118,7 @@ export default function PricingPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
@@ -168,8 +183,8 @@ export default function PricingPage() {
                 </ul>
               </div>
 
-              <div className={`px-8 py-6
-plan.highlighted ? 'bg-blue-700' : 'bg-slate-50'
+              <div className={`px-8 py-6 ${
+                plan.highlighted ? 'bg-blue-700' : 'bg-slate-50'
               }`}>
                 <button
                   onClick={() => handleCheckout(plan.priceId, plan.name)}
