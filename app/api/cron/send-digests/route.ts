@@ -7,7 +7,8 @@ const supabase = createClient(
 );
 
 export async function GET(req: NextRequest) {
-  if (req.headers.get('authorization') !== \Bearer \\) {
+  const expectedAuth = \Bearer \\;
+  if (req.headers.get('authorization') !== expectedAuth) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

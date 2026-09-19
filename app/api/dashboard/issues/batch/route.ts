@@ -18,7 +18,6 @@ export async function PATCH(req: NextRequest) {
       );
     }
 
-    // Update all issues
     const { data: updated, error: updateError } = await supabase
       .from('duplicate_issues')
       .update({
@@ -33,7 +32,6 @@ export async function PATCH(req: NextRequest) {
 
     if (updateError) throw updateError;
 
-    // Log approval history for each
     const historyRecords = issueIds.map((issueId: string) => ({
       id: crypto.randomUUID(),
       duplicate_issue_id: issueId,
@@ -49,10 +47,13 @@ export async function PATCH(req: NextRequest) {
 
     if (historyError) throw historyError;
 
+    const count = updated?.length || 0;
+    const verb = action === 'approve' ? 'approved' : 'rejected';
+
     return NextResponse.json({
       success: true,
-      updated: updated?.length || 0,
-      message: \\ issues \ed\
+      updated: count,
+      message: \\ issues \\
     });
   } catch (error) {
     console.error('Batch action error:', error);
