@@ -1,0 +1,9 @@
+﻿{
+  "": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/cron/send-digests",
+      "schedule": "0 * * * *"
+    }
+  ]
+}
